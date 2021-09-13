@@ -1,74 +1,71 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Boxer {
+    int id;
+    int weight;
+    int winCounts;
+    int gameCounts;
+    int winOverWeightCounts;
+    double winRate;
+
+    public Boxer(int id, int weight) {
+        this.id = id;
+        this.weight = weight;
+        this.winCounts = 0;
+        this.gameCounts = 0;
+        this.winOverWeightCounts = 0;
+    }
+}
+
 class Solution {
     public int[] solution(int[] weights, String[] head2head) {
-        int[] answer = {};
-        double[] winPercentArr = new double[head2head.length];
+
+        List<Boxer> boxers = new ArrayList<>();
         
-        for(int i = 0; i < head2head.length; i++){
-            String str = head2head[i];
-            int play = 0;
-            double win = 0.0, lose = 0.0,  winPercent = 0.0;
-            
-            for(int j = 0; j < str.length(); j++){
-                System.out.print(str.charAt(j) + " ");
-                if(str.charAt(j) == 'W'){
-                    win++;
-                    play++;
-                }
-                else if(str.charAt(j) == 'L'){
-                    lose++;
-                    play++;
-                }
-            }
-            if(play == 0){
-                winPercentArr[i] = 0;
-                // System.out.println("up W: " + win + ", L: " + lose + ", play: " + play);
-            }
-            else{
-                winPercent = (win/play) * 100;
-                winPercentArr[i] = winPercent; 
-                // System.out.println("down W: " + win + ", L: " + lose + ", play: " + play + ", winPercent: " + winPercentArr[i]);
-            }
-            
-            System.out.println();
+        for (int i = 0; i < weights.length; i++) {
+            boxers.add(new Boxer(i + 1, weights[i]));
         }
         
-        for(double i : winPercentArr)
-            System.out.print(i + " ");
-        
-        int[] arr1 = new int[winPercentArr.length];
-        for(int i = 0; i < arr1.length; i++){
-            arr1[i] = i+1;
-        }
-        
-        double tmp = 0.0;
-        int tmpIndex = 0;
-        for(int i = 0; i < winPercentArr.length-1; i++){
-            
-            double value = winPercentArr[i];
-            for(int j = i+1; j < winPercentArr.length; j++){
+        for (int i = 0; i < weights.length; i++) {
+            for (int j = 0; j < weights.length; j++) {
                 
-                if(value < winPercentArr[j]){
-                    tmp = winPercentArr[j];
-                    winPercentArr[j] =  winPercentArr[i];
-                    winPercentArr[i] = tmp;
-                    
-                    tmpIndex = arr1[j];
-                    arr1[j] = arr1[i];
-                    arr1[i] = tmpIndex;
+                if (head2head[i].charAt(j) != 'N') {
+                    boxers.get(i).gameCounts++;
                 }
+                if (head2head[i].charAt(j) == 'W') {
+                    boxers.get(i).winCounts++;
+                    
+                    if (boxers.get(j).weight > boxers.get(i).weight) {
+                        boxers.get(i).winOverWeightCounts++;
+                    }
+                }
+                
             }
         }
         
-        System.out.println();
-        for(int i = 0; i < winPercentArr.length; i++){
-            System.out.print(winPercentArr[i] + " ");
-        }
+        boxers.stream().forEach(a -> {
+            if (a.gameCounts > 0) {
+                a.winRate = (double) a.winCounts / a.gameCounts;
+            }
+        });
+
+        boxers.sort((a, b) -> {
+            if (a.winRate != b.winRate) {
+                return (b.winRate - a.winRate) > 0 ? 1 : -1;
+            }
+            else if (a.winOverWeightCounts != b.winOverWeightCounts) {
+                return b.winOverWeightCounts - a.winOverWeightCounts;
+            }
+            else if (a.weight != b.weight) {
+                return b.weight - a.weight;
+            }
+            else {
+                return a.id - b.id;
+            }
+        });
         
-        System.out.println();
-        for(int i = 0; i < arr1.length; i++){
-            System.out.print(arr1[i] + " ");
-        }
-        
-        return answer;
+        return boxers.stream().mapToInt(a -> a.id).toArray();
+
     }
 }
