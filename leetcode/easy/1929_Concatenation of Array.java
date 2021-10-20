@@ -4,16 +4,11 @@ class Solution {
         int n = nums.length*2;
         int[] answer = new int[n];
         
-        int j = 0;
-        for(int i = 0; i < answer.length; i++){
-            if(j >= nums.length){
-                j = 0;
-                answer[i] = nums[j];
-            }else{
-                answer[i] = nums[j];
-            }
-            j++;
+        for(int i = 0; i < nums.length; i++){
+            answer[i] = nums[i];
+            answer[i+nums.length] = nums[i];
         }
+        
         return answer;
     }
 }
