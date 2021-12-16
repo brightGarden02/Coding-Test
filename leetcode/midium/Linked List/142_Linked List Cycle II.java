@@ -5,23 +5,25 @@ public class Solution {
         ListNode fast = head;
         boolean cycle = false;
         
-        while(slow != null && fast.next != null && fast.next.next != null){
+        while(slow != null && (fast.next != null && fast.next.next != null)){
             
             slow = slow.next;
             fast = fast.next.next;
             
-            if(slow.val == fast.val){
+            if(slow == fast){
                 cycle = true;
                 break;
             }
         }
         
-        if(cycle == false) return null;
+        if(!cycle) return null;
         
         ListNode curr = head;
         while(curr != fast){
+            
             curr = curr.next;
             fast = fast.next;
+            
         }
         
         return curr;
