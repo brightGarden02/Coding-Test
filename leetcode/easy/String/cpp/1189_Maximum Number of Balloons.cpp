@@ -2,25 +2,25 @@ class Solution {
 public:
     int maxNumberOfBalloons(string text) {
         
-        unordered_map<char, int> mp;
+        unordered_map<char, int> map;
         int ans = 0;
         
         for(char c : text){
             
             if(c == 'b' || c == 'a' || c == 'l' || c == 'o' || c == 'n'){
-                mp[c]++;
+                map[c]++;
             }
             
         }
         
-        while(mp['b'] >= 1 && mp['a'] >= 1 && mp ['l'] >= 2 && mp['o'] >= 2 && mp['n'] >= 1){
+        while(map['b'] >= 1 && map['a'] >= 1 && map ['l'] >= 2 && map['o'] >= 2 && map['n'] >= 1){
             
             ans++;
-            mp['b']--;
-            mp['a']--;
-            mp['l'] -= 2;
-            mp['o'] -= 2;
-            mp['n']--;
+            map['b']--;
+            map['a']--;
+            map['l'] -= 2;
+            map['o'] -= 2;
+            map['n']--;
             
         }
         
