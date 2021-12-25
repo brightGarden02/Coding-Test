@@ -2,7 +2,6 @@ class Solution {
 public:
     vector<string> findOcurrences(string text, string first, string second) {
         
-        vector<string> store;
         vector<string> ans;
         
         stringstream str(text);
@@ -12,7 +11,7 @@ public:
             store.push_back(word);
         }
         
-        
+        vector<string> store;
         for(int i = 0; i < store.size(); i++){
             
             if(store[i] == first && store[i+1] == second && i+2 < store.size()){
