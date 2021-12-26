@@ -2,10 +2,11 @@ class Solution {
 public:
     string reformatDate(string date) {
         
-        stringstream str(date);
         
-        string tmp;
         string arr[3];
+        
+        stringstream str(date);
+        string tmp;
         int i = 0;
         while(str >> tmp){
             arr[i] = tmp;
