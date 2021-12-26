@@ -2,7 +2,6 @@ class Solution {
 public:
     string reformatDate(string date) {
         
-        
         string arr[3];
         
         stringstream str(date);
