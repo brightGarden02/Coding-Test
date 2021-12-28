@@ -10,7 +10,6 @@ public:
             if(c == 'b' || c == 'a' || c == 'l' || c == 'o' || c == 'n'){
                 map[c]++;
             }
-            
         }
         
         while(map['b'] >= 1 && map['a'] >= 1 && map ['l'] >= 2 && map['o'] >= 2 && map['n'] >= 1){
@@ -21,7 +20,6 @@ public:
             map['l'] -= 2;
             map['o'] -= 2;
             map['n']--;
-            
         }
         
         return ans;
