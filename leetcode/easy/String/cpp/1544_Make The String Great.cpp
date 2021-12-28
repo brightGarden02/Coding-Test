@@ -4,10 +4,7 @@ public:
         
         string ans;
         for(char &c : s){
-            
-            ans.empty() || !isTwoAdjacent(ans.back(), c) ? 
-                ans.push_back(c) : ans.pop_back();
-            
+            ans.empty() || !isTwoAdjacent(ans.back(), c) ? ans.push_back(c) : ans.pop_back();
         }
         
         return ans;
