@@ -17,7 +17,6 @@ public:
             if(store[i] == first && store[i+1] == second && i+2 < store.size()){
                 ans.push_back(store[i+2]);
             }
-            
         }
         
         return ans;
