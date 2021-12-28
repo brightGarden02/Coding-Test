@@ -18,9 +18,7 @@ public:
                     break;
                 }
             }
-            if(isPal){
-                return word;
-            }
+            if(isPal) return word;
             
         }
         return "";
