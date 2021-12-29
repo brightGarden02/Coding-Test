@@ -5,32 +5,26 @@ public:
         stack<char> st1;
         stack<char> st2;
         
-        for(int i = 0; i < s.length(); i++){
-            char tmp = s[i];
-            if(!st1.empty()){
-                
-                if(tmp != '#') st1.push(tmp);
-                else st1.pop();
-                
-            }
-            else{
-                if(tmp != '#') st1.push(tmp);
-            }
-        }
-        
-        for(int i = 0; i < t.length(); i++){
-            char tmp = t[i];
-            if(!st2.empty()){
-                
-                if(tmp != '#') st2.push(tmp);
-                else st2.pop();
-                    
-            }
-            else{
-                if(tmp != '#') st2.push(tmp);
-            }
-        }
+        backspaceStack(st1, s);
+        backspaceStack(st2, t);
         
         return st1 == st2;
     }
+    
+    void backspaceStack(stack<char> &stack, string str){
+        
+        for(int i = 0; i < str.length(); i++){
+            char tmp = str[i];
+            if(!stack.empty()){
+                
+                if(tmp != '#') stack.push(tmp);
+                else stack.pop();
+                
+            }
+            else if(tmp != '#'){
+                stack.push(tmp);
+            }
+        }
+    }
+    
 };
