@@ -24,18 +24,16 @@ public:
                 r--;
                 l++;
             }
-            if(left == true && right == false){
+            else if(left == true && right == false){
                 r--;
             }
-            if(left == false && right == true){
+            else if(left == false && right == true){
                 l++;
             }
-            if(left == false && right == false){
+            else if(left == false && right == false){
                 l++;
                 r--;
             }
-            
-            
         }
         
         return s;
