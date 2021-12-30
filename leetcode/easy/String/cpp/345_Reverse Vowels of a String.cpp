@@ -7,16 +7,14 @@ public:
         
         while(l < r){
             
-            if(((s[l] == 'a' || s[l] == 'A') || (s[l] == 'e' || s[l] == 'E') || (s[l] == 'i' || s[l] == 'I') || (s[l] == 'o' || s[l] == 'O') || (s[l] == 'u' || s[l] == 'U')) && 
-              ((s[r] == 'a' || s[r] == 'A') || (s[r] == 'e' || s[r] == 'E') || (s[r] == 'i' || s[r] == 'I') || (s[r] == 'o' || s[r] == 'O') || (s[r] == 'u' || s[r] == 'U'))){
-                
+            if(isVowel(s[l]) && isVowel(s[r])){
                 char tmp = s[l];
                 s[l] = s[r];
                 s[r] = tmp;
                 l++;
                 r--;
             }
-            else if((s[l] == 'a' || s[l] == 'A') || (s[l] == 'e' || s[l] == 'E') || (s[l] == 'i' || s[l] == 'I') || (s[l] == 'o' || s[l] == 'O') || (s[l] == 'u' || s[l] == 'U')){
+            else if(isVowel(s[l])){
                 r--;
             }
             else{
@@ -26,4 +24,14 @@ public:
         }
         return s;
     }
+    
+    bool isVowel(char c){
+        
+        if((c == 'a' || c == 'A') || (c == 'e' || c == 'E') || (c == 'i' || c == 'I') ||
+         (c == 'o' || c == 'O') || (c == 'u' || c == 'U')){
+            return true;
+        }
+        return false;
+    }
+    
 };
