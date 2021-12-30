@@ -5,7 +5,6 @@ public:
         unordered_map<string, int> map;
         
         for(int i = 0; i < list1.size(); i++){
-
             map[list1[i]] = i+1;
         }
         
