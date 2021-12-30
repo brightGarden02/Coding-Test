@@ -10,16 +10,16 @@ public:
         
             int sum = 0;
             if(aLen >= 0 && bLen >= 0){
-                sum = (int)(a[aLen] - '0') + (int)(b[bLen] - '0') + carry;
+                sum = (a[aLen] - '0') + (b[bLen] - '0') + carry;
                 aLen--;
                 bLen--;
             }
             else if(aLen >= 0){
-                sum = (int)(a[aLen] - '0') + carry;
+                sum = (a[aLen] - '0') + carry;
                 aLen--;
             }
             else{
-                sum = (int)(b[bLen] - '0') + carry;
+                sum = (b[bLen] - '0') + carry;
                 bLen--;
             }
             
