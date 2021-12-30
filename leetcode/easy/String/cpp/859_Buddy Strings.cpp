@@ -2,7 +2,7 @@ class Solution {
 public:
     bool buddyStrings(string s, string goal) {
         
-         if(s.length() != goal.length()) return false;
+        if(s.length() != goal.length()) return false;
         
         if(s == goal)
         {
