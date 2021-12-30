@@ -7,15 +7,8 @@ public:
         
         while(l < r){
             
-            bool left = false;
-            bool right = false;
-        
-            if( (s[l] >= 'a' && s[l] <= 'z') || ( s[l] >= 'A' && s[l] <='Z')){
-                left = true;
-            }
-            if( (s[r] >= 'a' && s[r] <= 'z') || ( s[r] >= 'A' && s[r] <='Z')){
-                right = true;
-            }
+            bool left = checkBoolean(s[l]);
+            bool right = checkBoolean(s[r]);
             
             if(left == true && right == true){
                 char tmp = s[l];
@@ -34,8 +27,17 @@ public:
                 l++;
                 r--;
             }
+            
         }
         
         return s;
+    }
+    
+    bool checkBoolean(char c){
+        
+        if((c >= 'a' && c <= 'z') || ( c >= 'A' && c <='Z')){
+            return true;
+        }
+        return false;
     }
 };
