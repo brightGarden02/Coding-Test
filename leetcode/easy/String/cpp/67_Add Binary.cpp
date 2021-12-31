@@ -24,7 +24,11 @@ public:
             }
             
             
-            if(sum == 2){
+            if(sum == 1){
+                carry = 0;
+                sum = 1;
+            }
+            else if(sum == 2){
                 carry = 1;
                 sum = 0;
             }
@@ -32,10 +36,7 @@ public:
                 carry = 1;
                 sum = 1;
             }
-            else if(sum == 1){
-                carry = 0;
-                sum = 1;
-            }
+            
             ans = to_string(sum) + ans;
             
         }
