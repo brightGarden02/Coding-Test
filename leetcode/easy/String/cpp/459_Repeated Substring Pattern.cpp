@@ -4,7 +4,7 @@ public:
         
         string str = s + s;
         str = str.substr(1, str.size() - 2);
-        return str.find(s) == string::npos ? false : true;
         
+        return str.find(s) == string::npos ? false : true;
     }
 };
