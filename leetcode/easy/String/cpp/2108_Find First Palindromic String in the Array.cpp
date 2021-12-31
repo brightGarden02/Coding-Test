@@ -21,7 +21,7 @@ public:
             if(isPal) return word;
             
         }
-        return "";
         
+        return "";
     }
 };
