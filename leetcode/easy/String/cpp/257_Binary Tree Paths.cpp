@@ -3,7 +3,6 @@ public:
     vector<string> binaryTreePaths(TreeNode* root) {
         
         vector<string> ans;
-        
         dfs(root, "", ans);
         
         return ans;
@@ -23,6 +22,5 @@ public:
             dfs(node->left, s + "->", ans);
         if(node->right)
             dfs(node->right, s + "->", ans);
-        
     }
 };
