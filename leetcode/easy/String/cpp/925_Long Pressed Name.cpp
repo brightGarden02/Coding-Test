@@ -11,7 +11,7 @@ public:
                 i++;
                 j++;
             }
-            else if(typed[j] == typed[j-1]){
+            else if(typed[j-1] == typed[j]){
                 j++;
             }
             else return false;
@@ -20,7 +20,7 @@ public:
         if(i == name.length()){
             while(j != typed.length())
             {
-                if(typed[j] != typed[j-1]) 
+                if(typed[j-1] != typed[j]) 
                     return false;
                 else
                     j++;
