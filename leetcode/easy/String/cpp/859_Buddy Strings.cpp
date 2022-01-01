@@ -6,9 +6,9 @@ public:
         
         if(s == goal)
         {
-            unordered_set<char> a = unordered_set<char>(s.begin(), s.end());  
+            unordered_set<char> set = unordered_set<char>(s.begin(), s.end());  
             
-            return a.size() < s.length();
+            return set.size() < s.length();
         }
         
         vector<int> v;
