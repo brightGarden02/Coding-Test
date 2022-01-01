@@ -7,12 +7,12 @@ public:
         
         while(n != 1){
 		
-			//check cycle
+	    //check cycle
             if(map[n]) return false;
             map[n]++;
             
             res = 0;
-			while(n){
+	    while(n){
                 res += pow(n%10, 2);
                 n /= 10;
             }
