@@ -9,8 +9,8 @@ public:
             for(int j = 0; j < cols; j++){
                 
                 int d = abs(rCenter - i) + abs(cCenter - j);
-                
                 vector<int> tmpV;
+                
                 tmpV.push_back(i);
                 tmpV.push_back(j);
                 disV.push_back(make_pair(d, tmpV));
