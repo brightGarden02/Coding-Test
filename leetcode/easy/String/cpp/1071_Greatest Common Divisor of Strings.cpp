@@ -5,7 +5,7 @@ public:
         int size1 = str1.size();
         int size2 = str2.size();
         
-        return str1 + str2 == str2 + str1
+        return (str1 + str2 == str2 + str1)
             ? str1.substr(0, my_gcd(size1, size2)) : "";
     }
     
