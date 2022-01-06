@@ -14,9 +14,9 @@ public:
                 
                 flag1 = true;
                 if(flag1 && (i+1 < binaryN.length())){
+                    
                     j = i+1;
                     while(j < binaryN.length()){
-                        
                         if(binaryN[j] == '1'){
                             flag2 = true;
                             break;
