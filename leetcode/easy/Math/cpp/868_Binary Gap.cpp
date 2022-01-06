@@ -3,32 +3,27 @@ public:
     int binaryGap(int n) {
         
         string binaryN = toBinary(n);
-        bool flag1 = false;
-        bool flag2 = false;
+        bool flag = false;
         int j = 0;
         int dMax = 0;
         
         for(int i = 0; i < binaryN.length(); i++){
             
-            if(binaryN[i] == '1'){
+            if(binaryN[i] == '1' && i+1 < binaryN.length()){
                 
-                flag1 = true;
-                if(flag1 && (i+1 < binaryN.length())){
-                    
-                    j = i+1;
-                    while(j < binaryN.length()){
-                        if(binaryN[j] == '1'){
-                            flag2 = true;
-                            break;
-                        }
-                        else{
-                            flag2 = false;
-                        }
-                        j++;
+                j = i+1;
+                while(j < binaryN.length()){
+                    if(binaryN[j] == '1'){
+                        flag = true;
+                        break;
                     }
-                }     
+                    else{
+                        flag = false;
+                    }
+                    j++;
+                } 
             }
-            if(flag2){
+            if(flag){
                 dMax = max(j-i, dMax);
             } 
         }
