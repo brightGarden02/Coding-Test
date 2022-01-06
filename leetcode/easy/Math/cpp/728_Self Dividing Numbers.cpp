@@ -11,13 +11,12 @@ public:
             int j = 0;
             while(j < tmpStr.size()){
                 
-                int d = tmp % 10;
-                if(d != 0 && (i % d == 0)){
+                int d = tmp%10;
+                if(d != 0 && (i%d == 0)){
                     divZero++;
                 }
                 tmp = tmp/10;
                 j++;
-                
             }
             if(divZero == tmpStr.size()){
                 v.push_back(i);
