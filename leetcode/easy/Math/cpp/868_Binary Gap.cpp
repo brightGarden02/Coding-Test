@@ -36,7 +36,6 @@ public:
         
         string ans = "";
         while(n){
-            
             int rem = n%2;
             ans = to_string(rem) + ans;
             n = n/2;
