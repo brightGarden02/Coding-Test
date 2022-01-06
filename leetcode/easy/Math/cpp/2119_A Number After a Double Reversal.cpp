@@ -6,7 +6,6 @@ public:
         string numStr = to_string(num);
         
         string str1 = reverseNumber(num);
-        
         num = stoi(str1);
         string str2 = reverseNumber(num);
         
@@ -17,11 +16,9 @@ public:
         
         string str = "";
         while(num){
-            
             int res = num % 10;
             str += to_string(res);
             num = num / 10;
-            
         }
         return str;
     }
