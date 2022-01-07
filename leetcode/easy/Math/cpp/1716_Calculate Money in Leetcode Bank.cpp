@@ -14,7 +14,6 @@ public:
                 j++;
                 start = j;
             }
-            
         }
         return ans;
     }
