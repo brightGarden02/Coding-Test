@@ -11,7 +11,6 @@ public:
             sum = sum + tmp;
             
             n = n/10;
-            
         }
         
         return prod - sum;
