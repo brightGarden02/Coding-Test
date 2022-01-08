@@ -10,7 +10,6 @@ public:
                 if(c*c == a*a + b*b && c > b && c <= n)
                     ans = ans + 2;
             }
-            
         }
         return ans;
     }
