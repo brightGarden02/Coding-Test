@@ -14,14 +14,12 @@ public:
                 
                 auto diff = abs(L-W);
                 if(diff < minDiff){
-                    
                     minDiff = diff;
                     minL = L;
                     minW = W;
                 }
             }
         }
-        
         v.push_back(max(minL, minW));
         v.push_back(min(minL, minW));
          
