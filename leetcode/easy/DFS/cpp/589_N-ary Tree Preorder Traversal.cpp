@@ -34,6 +34,5 @@ public:
         for(auto x : root->children){
             traverse(x, pre);    
         }
-        
     }
 };
