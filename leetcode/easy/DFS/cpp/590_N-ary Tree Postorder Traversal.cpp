@@ -23,7 +23,6 @@ public:
     vector<int> postorder(Node* root) {
         
         vector<int> post;
-        
         traverse(root, post);
         return post;
     }
