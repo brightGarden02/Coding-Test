@@ -27,7 +27,7 @@ public:
         return post;
     }
     
-    void traverse(Node* root, vector<int> &post){
+    void traverse(Node* root, vector<int>& post){
         
         if(root == NULL) return;
         for(auto x : root->children){
