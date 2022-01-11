@@ -29,6 +29,5 @@ public:
         inorder(v, root->left);
         v.push_back(root->val);
         inorder(v, root->right);
-        
     }
 };
