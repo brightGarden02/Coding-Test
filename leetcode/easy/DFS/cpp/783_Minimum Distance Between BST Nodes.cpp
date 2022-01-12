@@ -14,7 +14,7 @@ public:
     int minDiffInBST(TreeNode* root) {
         
         vector<int> v;
-        inorder(v, root);
+        inorder(root, v);
         int ans = INT_MAX;
         
         for(int i = 1; i < v.size(); i++){
@@ -23,11 +23,11 @@ public:
         return ans;
     }
     
-    void inorder(vector<int>& v, TreeNode* root){
+    void inorder(TreeNode* root, vector<int>& v){
         
         if(root == NULL) return;
-        inorder(v, root->left);
+        inorder(root->left, v);
         v.push_back(root->val);
-        inorder(v, root->right);
+        inorder(root->left, v);
     }
 };
