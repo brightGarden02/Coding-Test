@@ -19,7 +19,6 @@ public:
         if(isIdentical(root, subRoot)) return true;
         
         return isSubtree(root->left, subRoot) || isSubtree(root->right, subRoot);
-        
     }
     
     bool isIdentical(TreeNode* root, TreeNode* subRoot){
