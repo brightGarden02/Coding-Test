@@ -19,8 +19,8 @@ public:
     
     bool dfs(int curr, int end){
         
-        if (curr == end) return true;
-        if (visited[curr]) return false;
+        if(curr == end) return true;
+        if(visited[curr]) return false;
         
         visited[curr] = true;
         for(int next : graph[curr]){
