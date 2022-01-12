@@ -22,18 +22,17 @@ public:
             minValue = min(minValue, v[i]);
         }
         
-        bool check = false;
+        bool exist = false;
         for(int i = 0; i < v.size(); i++){
             
             if(v[i] <= minSecondValue && v[i] != minValue){
                 minSecondValue = min(minSecondValue, v[i]);
-                check = true;
+                exist = true;
             }
         }
         
-        if(check == false) return -1;
-        
-        return minSecondValue;
+        if(exist) return minSecondValue;
+        else return -1;
     }
     
     void traverse(TreeNode* root, vector<int>& v){
