@@ -14,10 +14,9 @@ public:
     int sumOfLeftLeaves(TreeNode* root) {
         
         if(!root) return 0;
-        else if(root->left and !root->left->left and !root->left->right)
+        else if(root->left && !root->left->left && !root->left->right)
             return root->left->val + sumOfLeftLeaves(root->left) + sumOfLeftLeaves(root->right);
         else
             return sumOfLeftLeaves(root->left) + sumOfLeftLeaves(root->right);
-        
     }
 };
