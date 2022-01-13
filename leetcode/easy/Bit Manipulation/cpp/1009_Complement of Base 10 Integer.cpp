@@ -5,7 +5,7 @@ public:
         if(num == 0) return 1;
         vector<int> temp; 
         
-	    while(num != 0){
+	while(num != 0){
             temp.push_back(num % 2);
             num /= 2;
         }
