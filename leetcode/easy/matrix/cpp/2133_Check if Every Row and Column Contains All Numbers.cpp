@@ -5,10 +5,8 @@ public:
        int n = matrix.size();
         
        set<int> rows;
-       for(int i = 0; i < n; i++)
-       {
-           for(int j = 0; j < n; j++)
-           {
+       for(int i = 0; i < n; i++){
+           for(int j = 0; j < n; j++){
                rows.insert(matrix[i][j]);
            }
            if(rows.size() != n) return false;
@@ -16,10 +14,8 @@ public:
        }
        
        set<int> cols;
-       for(int i = 0; i < n; i++)
-       {
-           for(int j = 0; j < n;j++)
-           {
+       for(int i = 0; i < n; i++){
+           for(int j = 0; j < n;j++){
                cols.insert(matrix[j][i]);
            }
            if(cols.size() != n) return false;
