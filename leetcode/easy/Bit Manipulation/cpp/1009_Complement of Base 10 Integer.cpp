@@ -5,7 +5,7 @@ public:
         if(num == 0) return 1;
         vector<int> temp; 
         
-		while(num != 0){
+	    while(num != 0){
             temp.push_back(num % 2);
             num /= 2;
         }
@@ -16,7 +16,7 @@ public:
         }
         
         int res = 0;
-		for(int i = temp.size()-1; i >= 0; i--){
+	for(int i = temp.size()-1; i >= 0; i--){
             res = res * 2 + temp[i];
         }
         
