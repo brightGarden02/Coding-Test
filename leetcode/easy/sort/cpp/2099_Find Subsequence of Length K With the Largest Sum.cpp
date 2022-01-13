@@ -7,12 +7,14 @@ public:
         vector<bool> check(n, false);
         vector<int> result;
         
-        for(int i = 0; i < n; i++) numsWithIndex[i] = {nums[i], i};
-        
+        for(int i = 0; i < n; i++){
+            numsWithIndex[i] = {nums[i], i};
+        }
         sort(numsWithIndex.begin(), numsWithIndex.end(), greater<pair<int, int>>());
         
-        for(int i = 0; i < k; i++) check[numsWithIndex[i].second] = true;
-        
+        for(int i = 0; i < k; i++){
+            check[numsWithIndex[i].second] = true;
+        }
         for(int i = 0; i < n; i++){
             if(check[i]) result.push_back(nums[i]);
         }
