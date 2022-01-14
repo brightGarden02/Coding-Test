@@ -9,7 +9,6 @@ public:
         int score = INT_MAX;
         
         for(int i = 0; i <= n-k; i++){
-            
             score = min(score, nums[k+i-1]-nums[i]);
         }
         
