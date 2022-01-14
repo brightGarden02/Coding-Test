@@ -3,17 +3,19 @@ public:
     vector<vector<int>> groupThePeople(vector<int>& groupSizes) {
         
         int n = groupSizes.size();
-        unordered_map<int, vector<int>> m;
+        unordered_map<int, vector<int>> map;
         
         for(int i = 0; i < n; i++){
-            m[groupSizes[i]].push_back(i);
+            
+            int group_size = groupSizes[i];
+            map[group_size].push_back(i);
         }
         
         vector<vector<int>> ans;
-        for(auto i : m){
+        for(auto m : map){
             
-            int size = i.first;
-            vector<int> v = i.second;
+            int size = m.first;
+            vector<int> v = m.second;
             vector<int> group;
             
             for(int j = 0; j < v.size(); j++){
