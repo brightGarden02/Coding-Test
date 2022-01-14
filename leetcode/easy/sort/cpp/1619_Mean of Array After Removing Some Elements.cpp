@@ -9,8 +9,8 @@ public:
         double sum = 0;
         int count = 0;
         for(int i = fivePer; i < n-fivePer; i++){
-            count++;
             sum += arr[i];
+            count++;
         }
         
         return sum/count;
