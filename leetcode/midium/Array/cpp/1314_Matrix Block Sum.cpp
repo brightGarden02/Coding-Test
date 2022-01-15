@@ -16,8 +16,8 @@ public:
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 
-                int r0 = max(0, i-k), c0 = max(0, j-k);
-                int r1 = min(m-1, i+k), c1 = min(n-1, j+k);
+                int r0 = max(0, i-k), r1 = min(m-1, i+k);
+                int c0 = max(0, j-k), c1 = min(n-1, j+k);
                 
                 ans[i][j] = mat[r1][c1];
                 if(r0 > 0) ans[i][j] -= mat[r0-1][c1];
