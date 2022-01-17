@@ -12,7 +12,7 @@ public:
             }
         }
         
-        for(int c = 0 ; c < grid[0].size(); c++){
+        for(int c = 0; c < grid[0].size(); c++){
             
             int sum = 0;
             for(int r = 0; r < grid.size(); r++){
