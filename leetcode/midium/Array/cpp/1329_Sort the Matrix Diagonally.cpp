@@ -12,10 +12,11 @@ public:
         
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
-			    matrix[i][j] = diagonal[i-j].top();
+		matrix[i][j] = diagonal[i-j].top();
                 diagonal[i-j].pop();
             }
         }
+	    
         return matrix;
     }
 };
