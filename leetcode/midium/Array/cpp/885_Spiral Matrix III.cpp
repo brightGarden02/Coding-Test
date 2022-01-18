@@ -27,7 +27,7 @@ public:
                 }
             }
             d++;
-            d = d%4;
+            d = d % 4;
         }
         
         return ans;
