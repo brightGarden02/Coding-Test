@@ -23,8 +23,8 @@ public:
                 for(int r = 0; r < grid.size(); r++){
                     if(grid[r][c] == 1) grid[r][c] = 0;
                     else grid[r][c] = 1;
-                    }
                 }
+            }
         }
         
         vector<string> v(grid.size());
