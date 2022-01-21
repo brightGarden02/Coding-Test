@@ -2,17 +2,17 @@ class Solution {
 public:
     int partitionDisjoint(vector<int>& nums) {
      
-        int rightMin = nums[0];
         int leftMax = nums[0];
+        int rightMin = nums[0];
         int index = 0;
         for(int i = 1; i < nums.size(); i++){
             
-            if(nums[i] < rightMin){
+            if(nums[i] < leftMax){
                 index = i;
-                rightMin = leftMax;
+                leftMax = rightMin;
             }
             
-            leftMax = max(nums[i], leftMax);
+            rightMin = max(nums[i], rightMin);
         }
         return index+1;
     }
