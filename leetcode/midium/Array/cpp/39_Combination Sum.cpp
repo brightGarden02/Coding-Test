@@ -3,25 +3,25 @@ public:
     vector<vector<int>> ans;
     vector<int> cur;
     int sum;
-    vector<vector<int>> combinationSum(vector<int>& candidates, int t) {
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
         
             sum = 0; 
-            combination(candidates, t, 0);
+            combination(candidates, target, 0);
         
             return ans;
     }
     
-    void combination(vector<int>& candidates, int t, int index){
+    void combination(vector<int>& candidates, int target, int starti){
     
-        if(sum > t) return;
-        if(sum == t) ans.push_back(cur);
+        if(sum > target) return;
+        if(sum == target) ans.push_back(cur);
         
-        for(int i = index; i < candidates.size(); i++){
+        for(int i = starti; i < candidates.size(); i++){
             
             sum += candidates[i];
             cur.push_back(candidates[i]);
             
-            combination(candidates, t, i);
+            combination(candidates, target, i);
             
             sum -= candidates[i];
             cur.pop_back();
