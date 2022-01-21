@@ -4,9 +4,10 @@ public:
     vector<int> cur;
     int sum;
     vector<vector<int>> combinationSum(vector<int>& candidates, int t) {
-            
+        
             sum = 0; 
             function(candidates, t, 0);
+        
             return ans;
     }
     
