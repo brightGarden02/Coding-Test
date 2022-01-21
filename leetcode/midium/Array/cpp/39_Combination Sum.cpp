@@ -16,7 +16,8 @@ public:
         if(sum > target) return;
         if(sum == target) ans.push_back(cur);
         
-        for(int i = starti; i < candidates.size(); i++){
+        int i = starti; 
+        while(i < candidates.size()){
             
             sum += candidates[i];
             cur.push_back(candidates[i]);
@@ -25,6 +26,8 @@ public:
             
             sum -= candidates[i];
             cur.pop_back();
+ 
+            i++;
         }      
     }
 };
