@@ -7,13 +7,10 @@ public:
         vector<vector<int>> ans;
         set<vector<int>> store;
         
-        
         for(int i = 0; i < n-3; i++){
-            
             for(int j = i+1; j < n-2; j++){
             
-                int new_target  =  target - nums[i] - nums[j];
-                
+                int new_target = target - nums[i] - nums[j];
                 int k = j+1;
                 int l = n-1;
                 while(k < l){
@@ -25,8 +22,7 @@ public:
                         k++;
                     }
                     else{
-                        
-                        store.insert({nums[i] , nums[j] , nums[k] , nums[l]});
+                        store.insert({nums[i], nums[j], nums[k], nums[l]});
                         l--;
                         k++;
                     }
@@ -34,7 +30,7 @@ public:
             }
         }
         
-         for(auto i : store){
+        for(auto i : store){
             ans.push_back(i); 
         }
         
