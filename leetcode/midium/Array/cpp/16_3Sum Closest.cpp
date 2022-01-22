@@ -29,7 +29,6 @@ public:
                     return target;
                 }
             }
-            
         }
         
         return sum;
