@@ -16,6 +16,7 @@ public:
         if(sum > target) return;
         if(sum == target){
             ans.push_back(cur);
+            return;
         }
             
         for(int i = starti; i < candidates.size(); i++){
