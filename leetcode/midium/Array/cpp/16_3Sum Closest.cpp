@@ -12,15 +12,17 @@ public:
             int k = n-1;
             while(j < k){
                 
-                int temp = nums[i] + nums[j] + nums[k];
+                int tmp = nums[i] + nums[j] + nums[k];
                 
-                if(abs(temp-target) < abs(sum-target) ) sum = temp;
+                if(abs(tmp-target) < abs(sum-target) ) sum = tmp;
                 
-                if(temp > target){
+                if(tmp > target){
                     k--;                  
-                } else if(temp < target){
+                }
+                else if(tmp < target){
                     j++;             
-                }else{
+                }
+                else{
                     return target;
                 }
             }
