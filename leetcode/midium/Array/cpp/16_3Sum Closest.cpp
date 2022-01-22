@@ -14,7 +14,10 @@ public:
                 
                 int tmp = nums[i] + nums[j] + nums[k];
                 
-                if(abs(tmp-target) < abs(sum-target) ) sum = tmp;
+                if(abs(sum-target) > abs(tmp-target)){
+                    sum = tmp;
+                }
+                    
                 
                 if(tmp > target){
                     k--;                  
