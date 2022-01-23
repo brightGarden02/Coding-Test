@@ -9,7 +9,7 @@ public:
         
         vector<int> ans;
         int i;
-        while(left <= right and top <= bottom) {
+        while(left <= right && top <= bottom) {
             
             for(i = left; i <= right; i++) {
                 ans.push_back(matrix[top][i]);
