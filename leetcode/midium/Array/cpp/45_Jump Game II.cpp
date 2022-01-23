@@ -6,15 +6,15 @@ public:
         int i = 0;
         int jumps = 0;
         
-        int maxJump = 0;
-        int lastJumpi = 0;
+        int maxRange = 0;
+        int lastJumpedPos = 0;
         
-        while(lastJumpi < n-1){
+        while(lastJumpedPos < n-1){
             
-            maxJump = max(maxJump, i + nums[i]);
+            maxRange = max(maxRange, i + nums[i]);
             
-            if(i == lastJumpi){
-                lastJumpi = maxJump;
+            if(i == lastJumpedPos){
+                lastJumpedPos = maxRange;
                 jumps++;
             }
             i++;
