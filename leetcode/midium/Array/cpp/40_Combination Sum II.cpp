@@ -20,7 +20,7 @@ public:
         }
             
         for(int i = starti; i < candidates.size(); i++){
-            if(i != starti && candidates[i] == candidates[i-1])    
+            if(i != starti && candidates[i-1] == candidates[i])    
                 continue;
             
             sum += candidates[i];
