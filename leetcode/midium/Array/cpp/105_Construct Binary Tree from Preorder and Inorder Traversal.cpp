@@ -11,7 +11,6 @@
  */
 class Solution {
 public:
-    
     int preIndex = 0;
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         
@@ -25,16 +24,17 @@ public:
         }
         
         TreeNode* node = new TreeNode(preorder[preIndex++]);
-        int pos;
+        int mid;
         for(int i = start; i <= end; i++){
             if(inorder[i] == node->val){
-                pos = i;
+                mid = i;
                 break;
             }
         }
         
-        node->left = createTree(preorder, inorder, start, pos-1);
-        node->right = createTree(preorder, inorder, pos+1, end);
+        node->left = createTree(preorder, inorder, start, mid-1);
+        node->right = createTree(preorder, inorder, mid+1, end);
+        
         return node;
     }
 };
