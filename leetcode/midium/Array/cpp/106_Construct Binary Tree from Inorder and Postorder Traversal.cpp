@@ -14,32 +14,32 @@ public:
     TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
         
         int n = inorder.size();
-        int i = n-1;
+        int postIndex = n-1;
         
-        return solve(inorder, postorder, i, 0, n-1);
+        return solve(inorder, postorder, postIndex, 0, n-1);
     }
 
     
-    TreeNode* solve(vector<int>& inorder, vector<int>& postorder, int& i, int start, int end){
+    TreeNode* solve(vector<int>& inorder, vector<int>& postorder, int& postIndex, int start, int end){
         
         if(start > end) return NULL;
         
         int index = -1;
-        int postorderVal = postorder[i];
+        int postorderVal = postorder[postIndex];
         TreeNode* node = new TreeNode(postorderVal); 
         
-        for(int j = start; j <= end; j++){
+        for(int i = start; i <= end; i++){
             
-            if(postorderVal == inorder[j]){
-                index = j;
+            if(postorderVal == inorder[i]){
+                index = i;
                 break;
             }
         }
         
-        i--;
+        postIndex--;
         
-        node->right = solve(inorder, postorder, i, index + 1, end);
-        node->left = solve(inorder , postorder, i, start, index-1);
+        node->right = solve(inorder, postorder, postIndex, index+1, end);
+        node->left = solve(inorder , postorder, postIndex, start, index-1);
         
         return node;
     }
