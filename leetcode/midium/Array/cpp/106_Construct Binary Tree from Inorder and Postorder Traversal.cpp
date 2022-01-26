@@ -18,7 +18,7 @@ public:
         
         return solve(inorder, postorder, i, 0, n-1);
     }
-    
+
     
     TreeNode* solve(vector<int>& inorder, vector<int>& postorder, int& i, int start, int end){
         
@@ -26,9 +26,12 @@ public:
         
         int index = -1;
         TreeNode* node = new TreeNode(postorder[i]); 
+        
+        int postorderVal = postorder[i];
+        
         for(int j = start; j <= end; j++){
             
-            if(postorder[i] == inorder[j]){
+            if(postorderVal == inorder[j]){
                 index = j;
                 break;
             }
