@@ -11,29 +11,33 @@
  */
 class Solution {
 public:
-    int preIndex = 0;
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         
-        return createTree(preorder, inorder, 0, inorder.size()-1);
+        int n = inorder.size();
+        int preIndex = 0;
+        return createTree(preorder, inorder, preIndex, 0, n-1);
     }
     
-    TreeNode* createTree(vector<int>& preorder, vector<int>& inorder, int start, int end){
+    TreeNode* createTree(vector<int>& preorder, vector<int>& inorder, int& preIndex, int start, int end){
         
         if(start > end){
             return NULL;
         }
         
-        TreeNode* node = new TreeNode(preorder[preIndex++]);
+        int preorderVal = preorder[preIndex];
+        TreeNode* node = new TreeNode(preorderVal);
         int mid;
+        
         for(int i = start; i <= end; i++){
-            if(inorder[i] == node->val){
+            if(preorderVal == inorder[i]){
                 mid = i;
                 break;
             }
         }
+        preIndex++;
         
-        node->left = createTree(preorder, inorder, start, mid-1);
-        node->right = createTree(preorder, inorder, mid+1, end);
+        node->left = createTree(preorder, inorder, preIndex, start, mid-1);
+        node->right = createTree(preorder, inorder, preIndex, mid+1, end);
         
         return node;
     }
