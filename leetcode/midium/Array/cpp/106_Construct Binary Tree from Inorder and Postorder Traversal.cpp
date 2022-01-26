@@ -25,9 +25,8 @@ public:
         if(start > end) return NULL;
         
         int index = -1;
-        TreeNode* node = new TreeNode(postorder[i]); 
-        
         int postorderVal = postorder[i];
+        TreeNode* node = new TreeNode(postorderVal); 
         
         for(int j = start; j <= end; j++){
             
