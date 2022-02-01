@@ -4,11 +4,11 @@ class NumMatrix {
 public:
     NumMatrix(vector<vector<int>>& matrix) {
         
-        int ylen = matrix.size() + 1, xlen = matrix[0].size() + 1;
-        dp = vector<vector<long>>(ylen, vector<long>(xlen, 0));
+        int colLen = matrix.size()+1, rowLen = matrix[0].size()+1;
+        dp = vector<vector<long>>(colLen, vector<long>(rowLen, 0));
         
-        for (int i = 1; i < ylen; i++){
-            for (int j = 1; j < xlen; j++){
+        for(int i = 1; i < colLen; i++){
+            for(int j = 1; j < rowLen; j++){
                 dp[i][j] = matrix[i-1][j-1] + dp[i-1][j] + dp[i][j-1] - dp[i-1][j-1];       
             }    
         }      
