@@ -1,7 +1,6 @@
 class NumMatrix {
-    vector<vector<long>> dp;
-    
 public:
+    vector<vector<long>> dp;
     NumMatrix(vector<vector<int>>& matrix) {
         
         int colLen = matrix.size()+1, rowLen = matrix[0].size()+1;
