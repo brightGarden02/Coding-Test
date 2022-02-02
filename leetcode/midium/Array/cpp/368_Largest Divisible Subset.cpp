@@ -20,9 +20,6 @@ public:
             if(dp[i] > dp[max_idx]){
                 max_idx = i;
             }
-            else{
-                max_idx = max_idx;
-            }
         }
         
         int i = max_idx;
