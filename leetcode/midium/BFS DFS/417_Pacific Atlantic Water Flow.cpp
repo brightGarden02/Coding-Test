@@ -2,7 +2,7 @@ class Solution {
 public:
     int rows, cols;
     vector<vector<bool>> pacific, atlantic;
-	vector<vector<int>> ans;    
+    vector<vector<int>> ans;    
     
     vector<vector<int>> pacificAtlantic(vector<vector<int>>& mat) {
         
