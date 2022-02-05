@@ -4,13 +4,12 @@ public:
         
         int m = board.size();
         int n = board[0].size();
-
         int ans = 0;
         for(int i = 0; i < m; i++){
             for(int j = 0; j < n; j++){
                 if(board[i][j] == 'X'){
                     ans++;
-                    dfs(board,i,j);
+                    dfs(board, i, j);
                 }
             }
         }
@@ -24,7 +23,7 @@ public:
         int m = board.size();
         int n = board[0].size(); 
         
-        if(i < 0 || j < 0 || i >= m || j >= n || board[i][j] == '.') return;
+        if(i < 0 || i >= m || j < 0 || j >= n || board[i][j] == '.') return;
         
         board[i][j] = '.';
         
