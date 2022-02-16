@@ -11,13 +11,13 @@
  */
 class Solution {
 public:
-    vector<int> modes;
+    vector<int> ans;
     int p = INT_MIN, cur, maxVal = INT_MIN;
     
     vector<int> findMode(TreeNode* root) {
         
         inorder(root);
-        return modes;
+        return ans;
     }
     
     
@@ -31,13 +31,13 @@ public:
         else cur = 1;
         
         if(cur == maxVal) {
-            modes.push_back(root->val);
+            ans.push_back(root->val);
         }
         
         if(cur > maxVal) {
             maxVal = cur;
-            modes.clear();
-            modes.push_back(root->val);
+            ans.clear();
+            ans.push_back(root->val);
         }
         
         p = root->val;
