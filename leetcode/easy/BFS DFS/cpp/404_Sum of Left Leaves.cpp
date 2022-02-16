@@ -20,14 +20,14 @@ public:
         return sum;
     }
     
-    int traverse(TreeNode* root, bool val){
+    int traverse(TreeNode* root, bool flag){
     
         if(!root) return sum;
         
         traverse(root->left, true);
         traverse(root->right, false);
         
-        if(!root->left && !root->right && val == true){
+        if(!root->left && !root->right && flag == true){
             
             sum += root->val;
         }
