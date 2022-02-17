@@ -16,22 +16,18 @@ public:
         
         bool flag = false;
         traverse(root, flag);
-        
         return sum;
     }
     
-    int traverse(TreeNode* root, bool flag){
-    
-        if(!root) return sum;
+    void traverse(TreeNode* root, bool flag){
+     
+        if(!root) return;
+        if(!root->left && !root->right && flag == true){
+            sum += root->val;
+        }
         
         traverse(root->left, true);
         traverse(root->right, false);
         
-        if(!root->left && !root->right && flag == true){
-            
-            sum += root->val;
-        }
-     
-        return sum;
     }
 };
