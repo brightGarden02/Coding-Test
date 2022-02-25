@@ -6,7 +6,7 @@ int cnt[50001];
 
 int main(){
 	
-//	freopen("input.txt", "rt", stdin);
+//	freopen("9_divisors_of_number_of_all.txt", "rt", stdin);
 	int number, i, j;
 	scanf("%d", &number);
 	for(i = 1; i <= number; i++){
