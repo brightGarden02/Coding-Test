@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
 	
-	freopen("input.txt", "rt", stdin);
+	freopen("right_parenthesis.txt", "rt", stdin);
 	char a[31], b[31];
 	scanf("%s", &a);
 	stack<char> st;
