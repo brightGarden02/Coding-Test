@@ -6,7 +6,7 @@ int digit_sum(int x);
 
 int main(){
 	
-	freopen("input.txt", "rt", stdin);
+	freopen("10_sum_of_digits.txt", "rt", stdin);
 
 	int n, num, i, sum, max = INT_MIN, res;
 	scanf("%d", &n);
