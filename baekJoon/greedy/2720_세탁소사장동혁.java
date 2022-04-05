@@ -7,10 +7,10 @@ public class Ex1 {
 		// TODO Auto-generated method stub
 
         
-		Scanner sc = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
  
         int n = 3;
-		int[] arr = {124, 25, 194};
+	int[] arr = {124, 25, 194};
         
         
         int quarter_nums = 0;
@@ -44,7 +44,7 @@ public class Ex1 {
             
         }
         
-		System.out.println(quarter_nums + " " + dime_nums + " " + nickel_nums + " "+ penny_nums);
+	System.out.println(quarter_nums + " " + dime_nums + " " + nickel_nums + " "+ penny_nums);
 	
 	}
 
