@@ -1,29 +1,11 @@
-package coding_test0405;
-
 import java.util.Scanner;
-import java.util.ArrayList;
-
-class Edge<W, V> {
-	
-	private W weight;
-	private V v;
-	
-	public void setEdge(W weight, V v) {
-		
-		this.weight = weight;
-		this.v = v;
-	}
-}
-
-public class Ex1 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+public class Main{
+    
+    public static void main(String[] args){
         
-		Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         
-        int T = 189;
+        int T = sc.nextInt();
         int n1 = 0;
         int n2 = 0;
         int n3 = 0;
@@ -51,9 +33,5 @@ public class Ex1 {
             System.out.println(n1 + " " + n2 + " " + n3);
         else
             System.out.println(-1);
-        
-        
-		
-	}
-
+    }
 }
