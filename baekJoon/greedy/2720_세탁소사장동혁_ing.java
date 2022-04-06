@@ -1,7 +1,5 @@
-package coding_test0405;
-
 import java.util.Scanner;
-public class Ex1 {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -9,9 +7,12 @@ public class Ex1 {
         
 	Scanner sc = new Scanner(System.in);
  
-        int n = 3;
-	int[] arr = {124, 25, 194};
+        int n = sc.nextInt();
+	int[] arr= new int[n];
         
+	for(int i = 0; i < n; i++){
+            arr[i] = sc.nextInt();
+        }
         
         int quarter_nums = 0;
         int dime_nums = 0;
@@ -21,6 +22,10 @@ public class Ex1 {
         for(int i = 0; i < n; i++){
             
             int tmpMoney = arr[i];
+            quarter_nums = 0;
+            dime_nums = 0;
+            nickel_nums= 0;
+            penny_nums = 0;
             while(tmpMoney > 0){
                 
                 if(tmpMoney >= 25){
@@ -41,11 +46,10 @@ public class Ex1 {
                 }
                 
             }
-            
+            System.out.println(quarter_nums + " " + dime_nums + " " + nickel_nums + " "+ penny_nums);
+        	
         }
         
-	System.out.println(quarter_nums + " " + dime_nums + " " + nickel_nums + " "+ penny_nums);
-	
 	}
 
 }
