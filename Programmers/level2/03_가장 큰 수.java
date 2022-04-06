@@ -3,8 +3,8 @@ import java.util.Comparator;
 
 class Solution {
     public String solution(int[] numbers) {
-        String answer = "";
         
+        String answer = "";
         String[] strArray = new String[numbers.length];
         
         for(int i = 0; i < numbers.length; i++){
@@ -15,7 +15,6 @@ class Solution {
             
             @Override
             public int compare(String o1, String o2){
-                
                 return ((o2 + o1).compareTo(o1 + o2));
             }
         });
