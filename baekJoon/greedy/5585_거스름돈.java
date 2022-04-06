@@ -1,29 +1,12 @@
-package coding_test0405;
-
 import java.util.Scanner;
-import java.util.ArrayList;
 
-class Edge<W, V> {
-	
-	private W weight;
-	private V v;
-	
-	public void setEdge(W weight, V v) {
-		
-		this.weight = weight;
-		this.v = v;
-	}
-}
-
-public class Ex1 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+public class Main{
+    
+    public static void main(String[] args){
+     
+        Scanner sc = new Scanner(System.in);
         
-		Scanner sc = new Scanner(System.in);
-        
-        int submitMoney = 1;
+        int submitMoney = sc.nextInt();
         int remMoney = 1000 - submitMoney;
         
         int answer = 0;
@@ -45,16 +28,17 @@ public class Ex1 {
                 answer += remMoney / 10;
                 remMoney = remMoney % 10;
             }
+            else if(remMoney >= 5){
+                answer += remMoney / 5;
+                remMoney = remMoney % 5;
+            }
             else if(remMoney >= 1){
                 answer += remMoney / 1;
                 remMoney = remMoney % 1;
             }
-            System.out.println("answer: " + answer);
         }
         System.out.println(answer);
         
-        
-		
-	}
+    }
 
 }
