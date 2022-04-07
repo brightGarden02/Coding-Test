@@ -1,16 +1,11 @@
-package coding_test0405;
-
 import java.util.Scanner;
-import java.util.ArrayList;
 
-
-public class Ex1 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		Scanner sc = new Scanner(System.in);
+public class Main{
+    
+    public static void main(String[] args){
         
+        Scanner sc = new Scanner(System.in);
+               
         int n = sc.nextInt();
         int[] arr = new int[n];
         for(int i = 0; i < n; i++) {
@@ -32,6 +27,5 @@ public class Ex1 {
         }
         
         System.out.println(ans);
-	}
-
+    }
 }
