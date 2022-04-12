@@ -1,5 +1,3 @@
-package coding_test0405;
-
 import java.util.Stack;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,29 +8,26 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		Stack<Character> st = new Stack<>();
-        
-		
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	Stack<Character> st = new Stack<>();
+      	
         String s = br.readLine();
         int n = s.length();
         
         for(int i = 0; i < n; i++) {
         	
         	char c = s.charAt(i);
-            if(st.isEmpty()) {
-            	st.push(c);
-            }
-            else {
-            	if(st.peek() == c) {
-            		continue;
-            	}
-            	else {
+            	if(st.isEmpty()) {
             		st.push(c);
             	}
-            	
-            }
+            	else {
+            		if(st.peek() == c) {
+            			continue;
+            		}
+            		else {
+            			st.push(c);
+            		}
+            	}
         
         }
         
