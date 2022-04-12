@@ -1,5 +1,3 @@
-package coding_test0405;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.io.BufferedReader;
@@ -16,8 +14,8 @@ public class Main {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
         
-        int n = Integer.parseInt(br.readLine());
-        int[][] meetingArr = new int[n][2];
+        	int n = Integer.parseInt(br.readLine());
+        	int[][] meetingArr = new int[n][2];
         
 		
 		for(int i = 0; i < meetingArr.length; i++) {
