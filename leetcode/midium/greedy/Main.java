@@ -1,46 +1,39 @@
-package coding_test0405;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-
-public class Main {
-
-	public static void main(String[] args) throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-        String s = br.readLine();
-        int n = s.length();
+class Solution {
+    public int[][] generateMatrix(int n) {
         
-        int[] arr = new int[10];
-        int sum = 0;
-        String tmpS = "";
-        for(int i = 0; i < n; i++) {
-        	
-        	tmpS = s.substring(i, i+1);
-        	int digit = Integer.parseInt(tmpS);
-        	
-        	arr[digit]++;
-        	sum += digit;
+        int[][] arr = new int[n][n];
+        
+        int rowStart = 0;
+        int rowEnd = n-1;
+        
+        int colStart = 0;
+        int colEnd = n-1;
+        int num = 1;
+        
+        while (rowStart <= rowEnd && colStart <= colEnd) {
+            for (int i = colStart; i <= colEnd; i++) {
+                arr[rowStart][i] = num++;
+            }
+            rowStart++;
+            
+            for (int i = rowStart; i <= rowEnd; i++) {
+                arr[i][colEnd] = num++; 
+            }
+            colEnd--;
+            
+            for (int i = colEnd; i >= colStart; i--) {
+                if (rowStart <= rowEnd)
+                    arr[rowEnd][i] = num++; 
+            }
+            rowEnd--;
+            
+            for (int i = rowEnd; i >= rowStart; i--) {
+                if (colStart <= colEnd)
+                    arr[i][colStart] = num++; 
+            }
+            colStart++;
         }
         
-        if(!s.contains("0") || sum % 3 != 0) {
-        	System.out.println("-1");
-        	return;
-        }
-        
-        StringBuilder sb = new StringBuilder();
-        for(int i = 9; i >= 0; i--) {
-        	
-        	while(arr[i] > 0) {
-        		sb.append(i);
-        		arr[i]--;
-        	}
-        	
-        }
-        System.out.println(sb.toString());
-        
-	}
+        return arr;
+    }
 }
