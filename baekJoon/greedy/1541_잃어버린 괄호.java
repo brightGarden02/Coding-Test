@@ -1,5 +1,3 @@
-package coding_test0405;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,9 +8,8 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		StringTokenizer subtraction = new StringTokenizer(br.readLine(), "-");
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	StringTokenizer subtraction = new StringTokenizer(br.readLine(), "-");
         int sum = Integer.MAX_VALUE;
         
         while(subtraction.hasMoreTokens()) {
@@ -21,6 +18,7 @@ public class Main {
         	StringTokenizer addition = new StringTokenizer(subtraction.nextToken(), "+");
         	
         	while(addition.hasMoreTokens()) {
+			
         		temp += Integer.parseInt(addition.nextToken());
         	}
         	
