@@ -1,29 +1,18 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-public class Main {
-
-	public static void main(String[] args) throws IOException {
-		
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		String str = br.readLine();
-		String s = br.readLine();
-		int ans = 0;
-		
-		int i = 0;
-		while(str.length() > 0) {
-			
-			if(str.startsWith(s)) {
-				ans++;
-				str = str.substring(s.length());
-			}
-			else {
-				str = str.substring(1);
-			}
-		}
-		System.out.println(ans);
-		
-	}
+class Solution {
+    public int minOperations(int[] nums) {
+        
+        int ans = 0;
+        for(int i = 0; i < nums.length-1; i++){
+            
+            int dif = 0;
+            if(nums[i] >= nums[i+1]){
+                dif = nums[i] - nums[i+1] + 1;
+                nums[i+1] += dif;
+                ans += dif;
+            }    
+            
+        }
+        return ans;
+        
+    }
 }
