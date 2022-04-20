@@ -1,5 +1,3 @@
-package coding_test0405;
-
 import java.util.Arrays;
 import java.util.Scanner;
 
