@@ -1,9 +1,8 @@
-package coding_test0405;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
 
@@ -11,25 +10,26 @@ public class Main {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
-		long minAnger = 0;
-		
+	
 		int[] arr = new int[n];
 		
+		StringTokenizer st = new StringTokenizer(br.readLine());
 		for(int i = 0; i < n; i++) {
-			
-			arr[i] = Integer.parseInt(br.readLine());
+			arr[i] = Integer.parseInt(st.nextToken());
 		}
+		
 		Arrays.sort(arr);
+		int j = 0;
+		int ans = 0;
+		for(int i = n-1; i >= 0; i--) {
 			
-		int j = 1;
-		for(int i = 0; i < n; i++) {
-			
-			minAnger += Math.abs(j - arr[i]);
+			arr[i] = arr[i] + j + 1;
 			j++;
 			
+			ans = Math.max(arr[i], ans);
 		}
 		
-		System.out.println(minAnger);
-		
+		System.out.println(ans+1);
+			
 	}
 }
