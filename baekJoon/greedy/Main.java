@@ -1,5 +1,3 @@
-package coding_test0405;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,11 +12,6 @@ public class Main{
 			
 		String L = st.nextToken();
 		String R = st.nextToken();
-		
-		int eightMinSize = 0;
-		int eightMaxSize = L.length();
-		
-		System.out.println("L: " + L + ", R: " + R + ", eightMaxSize: " + eightMaxSize);
 		
 		int L_num =  Integer.parseInt(L);
 		int R_num =  Integer.parseInt(R);
@@ -35,13 +28,13 @@ public class Main{
 				}
 			}
 			if(eightNums == 0) {
-				System.out.println("eightNums: " +  eightNums);
+				System.out.println(eightNums);
 				return;
 			}
 			ans = Math.min(ans, eightNums);
 			
 		}
-		System.out.println("eightNums ans: " +  ans);
+		System.out.println(ans);
 		
 		
 	}
