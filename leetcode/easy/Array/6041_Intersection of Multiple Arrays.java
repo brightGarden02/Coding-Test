@@ -14,7 +14,8 @@ class Solution {
                   hm.put(nums[i][j], hm.getOrDefault(nums[i][j], 0) + 1);
                 }
           }
-
+        }
+        
         List<Integer> list = new ArrayList<>();
 
         for(int key : hm.keySet()){
@@ -33,4 +34,4 @@ class Solution {
 
     }
 
-}​
+}
