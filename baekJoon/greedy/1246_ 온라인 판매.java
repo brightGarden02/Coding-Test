@@ -1,5 +1,3 @@
-package codingMain;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -36,11 +34,10 @@ public class Main {
                 maxProfit = profit;
                 minCost = P[i];
             }
-            System.out.println("minCost: " + minCost + ", maxProfit: " + maxProfit);
             numbers--;
         }
 
-        System.out.println("resuot: " + minCost + " " + maxProfit);
+        System.out.println(minCost + " " + maxProfit);
 
     }
 }
