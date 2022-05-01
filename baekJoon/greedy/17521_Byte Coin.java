@@ -1,5 +1,3 @@
-package codingMain;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -26,11 +24,6 @@ public class Main {
             if(priceArr[i] < priceArr[i+1]){
 
                 coins += W / priceArr[i];
-
-                System.out.println("BUY-> W:" + W + ", coins: " + coins +
-                        " priceArr[" + i + "]: " + priceArr[i] +
-                        " priceArr[" + (i+1) + "]: " + priceArr[i+1]
-                );
                 W = W % priceArr[i];
 
             }
@@ -38,15 +31,9 @@ public class Main {
 
                 W += coins * priceArr[i];
                 coins = 0;
-                System.out.println("SELL-> W:" + W + ", coins: " + coins +
-                        " priceArr[" + i + "]: " + priceArr[i] +
-                        " priceArr[" + (i+1) + "]: " + priceArr[i+1]
-                );
-
+                
             }
 
-            System.out.println("RESULT-> W:" + W + ", coins: " + coins);
-            System.out.println();
         }
 
         if(coins > 0){
