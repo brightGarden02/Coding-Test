@@ -49,6 +49,7 @@ public class Main {
         br.close();
     }
 
+    
     private static int getMaxBookLocation(PriorityQueue<Integer> posiveQ, PriorityQueue<Integer> negativeQ) {
 
         int maxBookLocation = 0;
@@ -66,7 +67,9 @@ public class Main {
         return maxBookLocation;
     }
 
+    
     private static int getStepCounts(int m, PriorityQueue<Integer> q, int answer) {
+        
         while(!q.isEmpty()){
 
             int temp = q.poll();
