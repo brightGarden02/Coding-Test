@@ -1,26 +1,5 @@
-package codingMain;
-
-import java.io.*;
-import java.util.*;
-
-public class Main {
-
-    public static void main(String[] args) throws IOException {
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        String s = "tebbem";
-        bw.write(validPalindrome(s) + "\n");
-
-
-        bw.flush();
-        bw.close();
-        br.close();
-    }
-
-
-    public static boolean validPalindrome(String s) {
+class Solution {
+    public boolean validPalindrome(String s) {
 
         int n = s.length();
         int l = 0, r = n-1;
@@ -41,10 +20,10 @@ public class Main {
             r--;
         }
 
-        return false;
+        return true;
     }
 
-    private static boolean isPalindrome(String newString) {
+    private boolean isPalindrome(String newString) {
 
         int l = 0;
         int r = newString.length()-1;
@@ -59,7 +38,7 @@ public class Main {
 
     }
 
-    private static String deleteChar(String s, int deleteIdx) {
+    private String deleteChar(String s, int deleteIdx) {
 
         String newString = "";
         int n = s.length();
