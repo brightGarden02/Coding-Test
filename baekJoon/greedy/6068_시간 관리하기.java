@@ -1,5 +1,3 @@
-package codingMain;
-
 import java.io.*;
 import java.util.*;
 
@@ -32,22 +30,12 @@ public class Main {
             }
         });
 
-        for(int i = 0; i < arr.length; i++){
-            System.out.println(arr[i][0] + " " + arr[i][1]);
-        }
-
-//4
-//17 63
-//32 95
-//38 129
-//11 104
 
         int answer = 0;
         int wakeUpTime = arr[0][1] - arr[0][0];
 
         for(int i = 1; i < n; i++){
 
-        //    System.out.println("wakeUpTime: " + wakeUpTime);
             if(wakeUpTime <= arr[i][1]){
                 wakeUpTime = wakeUpTime - arr[i][0];
             }
