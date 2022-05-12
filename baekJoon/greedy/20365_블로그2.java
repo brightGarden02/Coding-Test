@@ -1,5 +1,3 @@
-package codingMain;
-
 import java.io.*;
 
 public class Main {
