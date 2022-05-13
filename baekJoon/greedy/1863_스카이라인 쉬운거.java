@@ -1,5 +1,3 @@
-package codingMain;
-
 import java.io.*;
 import java.util.Stack;
 import java.util.StringTokenizer;
