@@ -1,5 +1,3 @@
-package codingMain;
-
 import java.io.*;
 import java.util.*;
 
@@ -33,11 +31,6 @@ public class Main {
             }
         });
 
-//        for(int i = 0; i < n; i++){
-//
-//            System.out.println(list.get(i).start + " " + list.get(i).end);
-//
-//        }
 
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
@@ -45,7 +38,7 @@ public class Main {
         int i = 0;
         while(i < n){
 
-            while(!pq.isEmpty()  && list.get(i).start >= pq.peek()){
+            if(!pq.isEmpty()  && list.get(i).start >= pq.peek()){
                 pq.poll();
             }
             pq.add(list.get(i).end);
