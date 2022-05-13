@@ -1,3 +1,5 @@
+package codingMain;
+
 import java.io.*;
 import java.util.*;
 
@@ -8,54 +10,37 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-        int lectureNumber = 0;
-        int start = 0;
-        int end = 0;
+        int[][] arr = new int[n][2];
 
-        List<Node> list = new ArrayList<>();
         for(int i = 0; i < n; i++){
-
             StringTokenizer st = new StringTokenizer(br.readLine());
-            while(st.hasMoreTokens()){
-                lectureNumber = Integer.parseInt(st.nextToken());
-                start = Integer.parseInt(st.nextToken());
-                end = Integer.parseInt(st.nextToken());
-            }
-            list.add(new Node(lectureNumber, start, end));
+            arr[i][0] = Integer.parseInt(st.nextToken());
+            arr[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        Collections.sort(list, new Comparator<Node>() {
+        Arrays.sort(arr, new Comparator<int[]>() {
             @Override
-            public int compare(Node o1, Node o2) {
-                return Integer.compare(o1.start, o2.start);
+            public int compare(int[] o1, int[] o2) {
+                if(o1[1] == o2[1]){
+                    return o2[0] - o1[0];
+                }
+                else{
+                    return o2[1] - o1[1];
+                }
             }
         });
 
-
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
-
-        int answer = 0;
-        int i = 0;
-        while(i < n){
-
-            if(!pq.isEmpty()  && list.get(i).start >= pq.peek()){
-                pq.poll();
+        int maxPlay = arr[0][1] - arr[0][0];
+        for(int i = 1; i < n; i++){
+            if(arr[i][1] < maxPlay){
+                maxPlay = arr[i][1] - arr[i][0];
             }
-            pq.add(list.get(i).end);
-            answer = Math.max(answer, pq.size());
-            i++;
+            else{
+                maxPlay = maxPlay - arr[i][0];
+            }
         }
 
-        System.out.println(answer);
+        System.out.println(maxPlay);
 
-    }
-
-    public static class Node{
-        int lectureNumber, start, end;
-        Node(int lectureNumber, int start, int end){
-            this.lectureNumber = lectureNumber;
-            this.start = start;
-            this.end = end;
-        }
     }
 }
