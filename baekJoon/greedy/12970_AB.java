@@ -1,4 +1,3 @@
-package codingTest;
 import java.io.*;
 import java.util.*;
 
