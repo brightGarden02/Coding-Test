@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Main {
 
-    private static int[][] board;
+    private static int[][] matrix;
     private static int minusOneCount = 0;
     private static int zeroCount = 0;
     private static int plusOneCount = 0;
@@ -17,12 +17,12 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
-        board = new int[n][n];
+        matrix = new int[n][n];
 
         for(int i = 0; i < n; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             for(int j = 0; j < n; j++){
-                board[i][j] = Integer.parseInt(st.nextToken());
+                matrix[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
@@ -35,11 +35,11 @@ public class Main {
 
     private static void partition(int row, int col, int size) {
 
-        if(colorCheck(row, col, size)){
-            if(board[row][col] == -1){
+        if(isAllNumberSame(row, col, size)){
+            if(matrix[row][col] == -1){
                 minusOneCount++;
             }
-            else if(board[row][col] == 0){
+            else if(matrix[row][col] == 0){
                 zeroCount++;
             }
             else {
@@ -62,16 +62,15 @@ public class Main {
         partition(row + newSize * 2, col + newSize, newSize);
         partition(row + newSize * 2, col + newSize * 2, newSize);
 
-
     }
 
-    private static boolean colorCheck(int row, int col, int size) {
+    private static boolean isAllNumberSame(int row, int col, int size) {
 
-        int color = board[row][col];
+        int color = matrix[row][col];
 
         for(int i = row; i < row + size; i++){
             for(int j = col; j < col + size; j++){
-                if(color != board[i][j]){
+                if(color != matrix[i][j]){
                     return false;
                 }
             }
