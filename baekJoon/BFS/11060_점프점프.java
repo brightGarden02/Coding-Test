@@ -16,13 +16,13 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         n = Integer.parseInt(br.readLine());
-        miro = new int[n];
-        visited = new int[n];
+        miro = new int[n+1];
+        visited = new int[n+1];
         Arrays.fill(visited, Integer.MAX_VALUE);
 
 
         StringTokenizer st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < n; i++){
+        for(int i = 1; i <= n; i++){
             miro[i] = Integer.parseInt(st.nextToken());
         }
 
@@ -34,22 +34,21 @@ public class Main {
 
         Queue<Integer> queue = new LinkedList<>();
 
-        queue.add(0);
-        visited[0] = 0;
+        queue.add(1);
+        visited[1] = 0;
 
         while(!queue.isEmpty()){
 
-            int cur = queue.poll();
-            for(int i = 1; i <= miro[cur]; i++){
+            int curIdx = queue.poll();
+            for(int i = 1; i <= miro[curIdx]; i++){
 
-                int nextIdx = cur + i;
-
-                if(nextIdx >= n){
+                int nextIdx = curIdx + i;
+                if(nextIdx > n){
                     break;
                 }
 
-                if(visited[nextIdx] > visited[cur] + 1){
-                    visited[nextIdx] = visited[cur] + 1;
+                if(visited[nextIdx] > visited[curIdx] + 1){
+                    visited[nextIdx] = visited[curIdx] + 1;
                     queue.add(nextIdx);
                 }
 
@@ -57,8 +56,8 @@ public class Main {
 
         }
 
-        if (visited[n-1] == Integer.MAX_VALUE) return -1;
-        else return visited[n-1];
+        if (visited[n] == Integer.MAX_VALUE) return -1;
+        else return visited[n];
 
     }
 }
