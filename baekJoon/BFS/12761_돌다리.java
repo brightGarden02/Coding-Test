@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Main {
 
-    private static int A, B, start, end, answer = 0;
+    private static int A, B, start, end, answer;
     private static boolean[] visited = new boolean[100001];
 
     public static void main(String[] args) throws IOException {
@@ -35,59 +35,59 @@ public class Main {
             Point p = queue.poll();
 
             if(p.x == end){
-                answer = p.y;
+                answer = p.cnt;
                 return;
             }
 
             if(p.x + 1 < 100001 && !visited[p.x + 1]){
 
                 visited[p.x + 1] = true;
-                queue.add(new Point(p.x + 1, p.y + 1));
+                queue.add(new Point(p.x + 1, p.cnt + 1));
             }
             if(p.x - 1 >= 0 && !visited[p.x - 1]){
 
                 visited[p.x - 1] = true;
-                queue.add(new Point(p.x - 1, p.y + 1));
+                queue.add(new Point(p.x - 1, p.cnt + 1));
             }
             if(p.x + A < 100001 && !visited[p.x + A]){
 
                 visited[p.x + A] = true;
-                queue.add(new Point(p.x + A, p.y + 1));
+                queue.add(new Point(p.x + A, p.cnt + 1));
             }
             if(p.x + B < 100001 && !visited[p.x + B]){
 
                 visited[p.x + B] = true;
-                queue.add(new Point(p.x + B, p.y + 1));
+                queue.add(new Point(p.x + B, p.cnt + 1));
             }
             if(p.x - A >= 0 && !visited[p.x - A]){
 
                 visited[p.x - A] = true;
-                queue.add(new Point(p.x - A, p.y + 1));
+                queue.add(new Point(p.x - A, p.cnt + 1));
             }
             if(p.x - B >= 0 && !visited[p.x - B]){
 
                 visited[p.x - B] = true;
-                queue.add(new Point(p.x - B, p.y + 1));
+                queue.add(new Point(p.x - B, p.cnt + 1));
             }
             if(p.x * A < 100001 && !visited[p.x * A]){
 
                 visited[p.x * A] = true;
-                queue.add(new Point(p.x * A, p.y + 1));
+                queue.add(new Point(p.x * A, p.cnt + 1));
             }
             if(p.x * B < 100001 && !visited[p.x * B]){
 
                 visited[p.x * B] = true;
-                queue.add(new Point(p.x * B, p.y + 1));
+                queue.add(new Point(p.x * B, p.cnt + 1));
             }
         }
     }
 }
 
 class Point{
-    int x, y;
+    int x, cnt;
 
-    public Point(int x, int y) {
+    public Point(int x, int cnt) {
         this.x = x;
-        this.y = y;
+        this.cnt = cnt;
     }
 }
