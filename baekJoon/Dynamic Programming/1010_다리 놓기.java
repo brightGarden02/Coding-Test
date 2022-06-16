@@ -7,15 +7,13 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int[][] dp = new int[30][30];
 
-        // nCr
+        // nCn == 1,  nC0 == 1
         // 2번성질 (n == r, r == 0)
         for(int i = 0; i < 30; i++){
             dp[i][i] = 1;
@@ -24,7 +22,7 @@ public class Main {
 
         for(int i = 2; i < 30; i++){
             for(int j = 1; j < 30; j++){
-                // 1번 성질
+                // nCr = (n-1)C(r-1) + (n-1)Cr 1번 성질
                 dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
             }
         }
