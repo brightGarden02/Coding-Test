@@ -1,90 +1,77 @@
-package ex;
+package coding;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
 public class Main {
 
+    private static int n, curX, curY, endX, endY;
     private static int[][] chess;
-    private static boolean[][] visited;
-    private static int[] dx = {-2, -2, -1, 1, 2, 2, 1, -1};
-    private static int[] dy = {1, -1, -2, -2, -1, 1, 2, 2};
-    private static int n, startX, startY, destinationX, destinationY;
-
+    private static int[] dx = {-2, -1, 1, 2, -2, -1, 1, 2};
+    private static int[] dy = {1, 2, 2, 1, -1, -2, -2, -1};
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
 
         int T = Integer.parseInt(br.readLine());
         while(T-- > 0){
-
+            
             n = Integer.parseInt(br.readLine());
             chess = new int[n][n];
-            visited = new boolean[n][n];
+
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            curX = Integer.parseInt(st.nextToken());
+            curY = Integer.parseInt(st.nextToken());
 
             st = new StringTokenizer(br.readLine());
-            startX = Integer.parseInt(st.nextToken());
-            startY = Integer.parseInt(st.nextToken());
-
-            st = new StringTokenizer(br.readLine());
-            destinationX = Integer.parseInt(st.nextToken());
-            destinationY = Integer.parseInt(st.nextToken());
-
+            endX = Integer.parseInt(st.nextToken());
+            endY = Integer.parseInt(st.nextToken());
+            
             bfs();
 
+            System.out.println(chess[endX][endY]);
         }
+        
 
     }
 
     private static void bfs() {
 
-        Queue<Knight> queue = new LinkedList<>();
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{curX, curY});
 
-        queue.add(new Knight(startX, startY, 0));
-        visited[startX][startY] = true;
-
-        if(startX == destinationX && startY == destinationY){
-            System.out.println(0);
-            return;
-        }
+        boolean[][] visited = new boolean[n][n];
+        visited[curX][curY] = true;
 
         while(!queue.isEmpty()){
 
-            Knight k = queue.poll();
-            int nowX = k.x;
-            int nowY = k.y;
+            int[] now = queue.poll();
+            int nowX = now[0];
+            int nowY = now[1];
 
-            for(int d = 0; d < 8; d++){
-                int nextX = nowX + dx[d];
-                int nextY = nowY + dy[d];
+            for(int i = 0; i < 8; i++){
 
-                if(nextX == destinationX && nextY == destinationY){
-                    System.out.println(k.cnt + 1);
+                int nextX = nowX + dx[i];
+                int nextY = nowY + dy[i];
+
+                if(nextX >= 0 && nextY >= 0 && nextX < n && nextY < n
+                && !visited[nextX][nextY]){
+
+                    visited[nextX][nextY] = true;
+                    chess[nextX][nextY] = chess[nowX][nowY] + 1;
+                    queue.add(new int[]{nextX, nextY});
+                }
+
+                if(nextX == endX && nextY == endY){
                     return;
                 }
 
-                if(nextX >= 0 && nextY >= 0 && nextX < n && nextY < n
-                 && !visited[nextX][nextY]){
-
-                    visited[nextX][nextY] = true;
-                    queue.add(new Knight(nextX, nextY, k.cnt + 1));
-                }
-
             }
-
         }
-    }
-}
 
-class Knight{
-    int x, y, cnt;
-
-    public Knight(int x, int y, int cnt) {
-        this.x = x;
-        this.y = y;
-        this.cnt = cnt;
     }
 }
