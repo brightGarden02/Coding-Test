@@ -1,4 +1,4 @@
-package ex;
+package coding;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,78 +6,75 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main {
-
-    private static int n, startX, startY, destinationX, destinationY;
-
+    
+    private static int gsShops, homeX, homeY, destinationX, destinationY;
+    
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int T = Integer.parseInt(br.readLine());
-        for(int i = 0; i < T; i++){
+        while (T-- > 0) {
 
-            n = Integer.parseInt(br.readLine());
-            List<int[]> list = new ArrayList<>();
-            for(int j = 0; j < n+2; j++){
+            gsShops = Integer.parseInt(br.readLine());
+            List<int []> gsShopsList = new ArrayList<>();
 
+            String[] home = br.readLine().split(" ");
+            homeX = Integer.parseInt(home[0]);
+            homeY = Integer.parseInt(home[1]);
+
+
+            for (int i = 0; i < gsShops; i++) {
                 StringTokenizer st = new StringTokenizer(br.readLine());
                 int x = Integer.parseInt(st.nextToken());
                 int y = Integer.parseInt(st.nextToken());
 
-                if(j == 0){
-                    startX = x;
-                    startY = y;
-                }
-                else if(j == n+1){
-                    destinationX = x;
-                    destinationY = y;
-                }
-                else{
-                    list.add(new int[] {x, y});
-                }
-
+                gsShopsList.add(new int[]{x, y});
             }
 
-            if(bfs(list)){
+            String[] destination = br.readLine().split(" ");
+            destinationX = Integer.parseInt(destination[0]);
+            destinationY = Integer.parseInt(destination[1]);
+
+            if (bfs(gsShopsList)) {
                 System.out.println("happy");
-            }
-            else{
+            } else {
                 System.out.println("sad");
             }
-        }
 
+        }
     }
 
-    private static boolean bfs(List<int[]> list) {
+    private static boolean bfs(List<int []> gsShopsList) {
 
-        Queue<int[]> queue = new LinkedList<>();
-        boolean[] visited = new boolean[n];
-        queue.add(new int[] {startX, startY});
+        Queue<int []> queue = new LinkedList<>();
+        boolean[] visited = new boolean[gsShops];
+        queue.add(new int[] {homeX, homeY});
 
-        while (!queue.isEmpty()){
+        while(!queue.isEmpty()) {
 
             int[] now = queue.poll();
             int nowX = now[0];
             int nowY = now[1];
 
-            if(Math.abs(nowX - destinationX) + Math.abs(nowY - destinationY) <= 1000){
+            if(Math.abs(nowX - destinationX ) + Math.abs(nowY - destinationY ) <= 1000){
                 return true;
             }
 
-            for(int i = 0; i < n; i++){
+            for(int i = 0; i < gsShops; i++){
 
                 if(!visited[i]){
 
-                    int nextX = list.get(i)[0];
-                    int nextY = list.get(i)[1];
-                    int distance = Math.abs(nowX - nextX) + Math.abs(nowY - nextY);
+                    int nextX = gsShopsList.get(i)[0];
+                    int nextY = gsShopsList.get(i)[1];
 
-                    if(distance <= 1000){
+                    if(Math.abs(nowX - nextX) + Math.abs(nowY - nextY) <= 1000){
                         visited[i] = true;
                         queue.add(new int[] {nextX, nextY});
                     }
                 }
             }
+
         }
 
         return false;
