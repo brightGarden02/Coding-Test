@@ -9,36 +9,32 @@ import java.util.StringTokenizer;
 
 public class Main {
 
-    private static int M, N, count;
-    private static int[][] farm;
-    private static boolean[][] visited;
-    private static int[] dx = {0, 0, -1, 1};
-    private static int[] dy = {1, -1, 0, 0};
-
+    private static int[][] arr;
+    private static int m, n;
+    private static int[] dx = {-1, 1, 0, 0};
+    private static int[] dy = {0, 0, 1, -1};
     private static Queue<int[]> queue = new LinkedList<>();
-
     public static void main(String[] args) throws IOException {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        M = Integer.parseInt(st.nextToken());
-        N = Integer.parseInt(st.nextToken());
+        m = Integer.parseInt(st.nextToken());
+        n = Integer.parseInt(st.nextToken());
 
-        farm = new int[N][M];
-        visited = new boolean[N][M];
+        arr = new int[n][m];
 
-        for(int i = 0; i < N; i++){
+        for(int i = 0; i < n; i++){
             st = new StringTokenizer(br.readLine());
-            for(int j = 0; j < M; j++){
-                farm[i][j] = Integer.parseInt(st.nextToken());
+            for(int j = 0; j < m; j++){
+                arr[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
 
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < M; j++){
-                if(farm[i][j] == 1){
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(arr[i][j] == 1){
                     queue.add(new int[] {i, j});
                 }
             }
@@ -46,24 +42,23 @@ public class Main {
 
         bfs();
 
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < M; j++){
-                if(farm[i][j] == 0){
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                if(arr[i][j] == 0){
                     System.out.println(-1);
                     return;
                 }
             }
         }
 
-
-        int maxVal = Integer.MIN_VALUE;
-        for(int i = 0; i < N; i++){
-            for(int j = 0; j < M; j++){
-                maxVal = Math.max(maxVal, farm[i][j]);
+        int days = -1;
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                days = Math.max(days, arr[i][j]);
             }
         }
 
-        System.out.println(maxVal-1);
+        System.out.println(days-1);
     }
 
     private static void bfs() {
@@ -74,20 +69,17 @@ public class Main {
             int nowX = now[0];
             int nowY = now[1];
 
-            for(int d = 0; d < 4; d++){
+            for(int i = 0; i < 4; i++){
+                int nextX = nowX + dx[i];
+                int nextY = nowY + dy[i];
 
-                int nextX = nowX + dx[d];
-                int nextY = nowY + dy[d];
+                if(nextX >= 0 && nextY >= 0 && nextX < n && nextY < m &&
+                arr[nextX][nextY] == 0){
 
-                if(nextX >= 0 && nextY >= 0 && nextX < N && nextY < M){
-
-                    if(farm[nextX][nextY] == 0){
-                        farm[nextX][nextY] = farm[nowX][nowY] + 1;
-                        queue.add(new int[]{nextX, nextY});
-                    }
+                    arr[nextX][nextY] = arr[nowX][nowY] + 1;
+                    queue.add(new int[] {nextX, nextY});
                 }
             }
         }
-
     }
 }
