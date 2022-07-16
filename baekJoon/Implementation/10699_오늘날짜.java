@@ -5,8 +5,8 @@ public class Main {
 	public static void main(String[] args) {
 		
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		Date date = new Date();
-		System.out.println(format.format(date));
+	Date date = new Date();
+	System.out.println(format.format(date));
 	
     }
 }
