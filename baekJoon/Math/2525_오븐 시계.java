@@ -1,5 +1,3 @@
-package coding;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -20,20 +18,20 @@ public class Main {
 
         int totalMin = calculateHourToMin(hour) + min + tmpMin;
 
-        min = makeMin(totalMin);
         hour = makeHour(totalMin);
+        min = makeMin(totalMin);
 
         System.out.println(hour + " " + min);
     }
 
-    private static int makeHour(int totalMin) {
-        
-        int hour = totalMin / 60;
-        return hour % 24;
-    }
 
     private static int makeMin(int totalMin) {
         return totalMin % 60;
+    }
+    
+    private static int makeHour(int totalMin) {
+        int hour = totalMin / 60;
+        return hour % 24;
     }
 
     private static int calculateHourToMin(int hour) {
