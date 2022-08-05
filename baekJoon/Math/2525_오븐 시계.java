@@ -27,14 +27,12 @@ public class Main {
     }
 
     private static int makeHour(int totalMin) {
-
+        
         int hour = totalMin / 60;
-
         return hour % 24;
     }
 
     private static int makeMin(int totalMin) {
-
         return totalMin % 60;
     }
 
