@@ -22,8 +22,8 @@ public class Main {
             yArr[i] = Integer.parseInt(st.nextToken());
         }
 
-        xArr = deleteSameValue(xArr);
-        yArr = deleteSameValue(yArr);
+        deleteSameValue(xArr);
+        deleteSameValue(yArr);
 
         System.out.println(findCoordinatePoint(xArr) + " " + findCoordinatePoint(yArr));
    }
@@ -39,18 +39,17 @@ public class Main {
         return -1;
     }
 
-    private static int[] deleteSameValue(int[] arr) {
+    private static void deleteSameValue(int[] arr) {
 
         for(int i = 0; i < arr.length; i++){
             for(int j = 0; j < arr.length; j++){
                 if(i != j && arr[i] == arr[j]){
                     arr[i] = 0;
                     arr[j] = 0;
-                    return arr;
+                    return;
                 }
             }
         }
 
-        return arr;
     }
 }
